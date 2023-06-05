@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Rancho&display=swap');
+
+:root{
+    --fonte-titulo : 'Montserrat', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte-titulo);
+}
+
+body{
+    z-index: 1;
+}
+
+
+
+.container{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #16394a;
+}
+
+.textos , .imagem{
+   
+
+}
+
+.titulo h1{
+    font-size: 50px;
+    font-weight: bolder;
+    color: #1c415c;
+}
+
+.titulo h2{
+   color: #4b4d4d;
+   font-size: 30px;
+}
+
+.titulo h1,h2{
+    font-family: var(--fonte-titulo);
+    margin-bottom: 1rem;
+
+}
+
+.textos{
+    width: 40%;
+    text-align: center;
+    height: 600px;
+    background-color: white;
+    align-self: center;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: inset 0 0 9px 3px rgba(0,0,0,.25);
+}
+
+.imagem{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imagem img{
+    width: 100%;
+}
+
+.informacoes ul{
+    display: flex;
+    flex-direction: column;
+    gap:1rem ;
+    list-style-position: inside;
+    line-height: 1.5rem;
+    text-align: justify;
+    font-size: 1.2rem;
+    list-style-image: url('https://global-uploads.webflow.com/61b9e0dd381626819c8d4f83/62cef75c0262284af718645d_checked.webp');
+
+}
+
+
+.quero-participar{
+    margin-top: 3rem;
+ 
+}
+
+.quero-participar button{
+    /* width: 80%; */
+    margin-top: 1rem;
+    background-color: #eebe2a;
+    border-color: #997a1b;
+    padding: 5px 40px;
+    font-size: 30px;
+    border-radius: 2rem;
+    font-weight: bolder;
+    color: white;
+    border: 5px solid #997a1b;
+    border-top: 2px solid #997a1b;
+    border-left: 2px solid #997a1b;
+    cursor: pointer;
+}
+
+.quero-participar button:hover{
+    background-color: white; ;
+    color: #eebe2a;
+    
+}
+
+#modal{
+    width: 350px;
+    border: none;
+    box-shadow: 1px 1px 15px rgba(0,0,0,.7);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    position: relative;
+}
+
+#modal input{
+    padding: 0.5rem;
+    width: 100%;
+    border: 2px solid #eebe2a;
+    box-shadow: 1px 1px 10px #eebe2a;
+    outline: none;
+    
+}
+
+#modal button{
+    background-color: #eebe2a;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: white;
+    font-weight: bolder;
+    font-size: 1rem;
+}
+
+#modal button:hover{
+    background-color: white;
+    color: #eebe2a;
+    box-shadow: 1px 1px 10px #eebe2a;
+}
+
+
+/* Configuraçao CSS para deixar o elemento com label acima do campo input quando ele for selecionado */
+#modal .div-input{
+    position: relative;
+    
+}
+
+/* O label ficara tera um position absolute relativo a div de cada input */
+  #modal label{
+    position: absolute;
+    left: 5px;
+    top: 10px;
+    pointer-events: none;
+    transition: .5s;
+} 
+
+/* O valid verifica se o campo input tem valor preenchido, mas pra que ele funciona o atributo required tem que ser inserido em cada campo input */
+ #modal input:focus ~ label,
+ #modal input:valid ~ label{
+    top: -13px;
+    font-size: 12px;
+} 
+
+/* CSS para ativar modal */
+
+#fade,#modal{
+    opacity: 1;
+    transition: 0.4s ease-in;
+}
+
+#fade{
+    position: fixed;
+    top: 0;
+    left:0 ;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.6);
+    z-index: 5;
+}
+
+#modal{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 10;
+}
+
+#modal.hide, #fade.hide{
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
+@media screen and (max-width: 1076px){
+
+    main{
+        padding: 1rem;
+    }
+
+    .textos,.imagem{
+        width: 50%;
+    }
+ 
+}
+
+@media screen and (max-width: 900px) {
+    .quero-participar{
+        
+    }
+
+    .quero-participar button{
+        font-size: clamp(15px, 3vw, 20px);
+    }
+
+    .titulo h1{
+        font-size: 5vw;
+    }
+
+    .titulo h2{
+        font-size: 4vw;
+    }
+
+    .informacoes li{
+        font-size: clamp(12px, 2vw, 18px);
+    }
+}
+
+@media screen and (max-width: 700px){
+  
+}
+
+/* @media screen and (max-width: 700px) {
+    .quero-participar button{
+        font-size: 4vw;
+
+    }
+
+    .titulo h1{
+        font-size: 5vw;
+    }
+
+    .titulo h2{
+        font-size: 4vw;
+    }
+
+    .informacoes li{
+        font-size: clamp(15px, 3vw, 20px);
+    }
+} */
+
+@media screen and (max-width:600px){
+    section.imagem img{
+        width: 30vw;
+       
+    }
+    section.imagem {
+      width: 30%;
+    
+        display: flex;
+        
+    }
+    main{
+      
+        flex-direction: column;
+       
+        align-items: center;
+        width: 100vw;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .textos{
+        width: 100%;
+    }
+
+
+}
